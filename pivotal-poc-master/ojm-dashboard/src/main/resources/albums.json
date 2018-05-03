@@ -1,0 +1,194 @@
+[
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "New York",
+   "title": "JPMorgan Chase Bank, N.A.",
+   "releaseYear": "JPM",
+   "genre": "http://www.jpmorganchase.com",
+   "trackCount": "1270"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "San Francisco",
+   "title": "Wells Fargo Bank, N.A.",
+   "releaseYear": "WFC",
+   "genre": "http://www.wellsfargo.com",
+   "trackCount": "1237"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Charlotte",
+   "title": "Bank of America, N.A.",
+   "releaseYear": "BAC",
+   "genre": "www.bankofamerica.com",
+   "trackCount": "1270"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "New York",
+   "title": "Citibank, N.A.",
+   "releaseYear": "C",
+   "genre": "www.citibank.com",
+   "trackCount": "504"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Minneapolis",
+   "title": "U.S. Bank N.A.",
+   "releaseYear": "USB",
+   "genre": "http://www.usbank.com",
+   "trackCount": "329"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Pittsburgh",
+   "title": "PNC Bank, N.A.",
+   "releaseYear": "PNC",
+   "genre": "www.pnc.com",
+   "trackCount": "257"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Mclean",
+   "title": "Capital One, N.A.",
+   "releaseYear": "COF",
+   "genre": "www.capitalone.com",
+   "trackCount": "220"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Toronto",
+   "title": "TD Bank, N.A.",
+   "releaseYear": "TD",
+   "genre": "www.tdbank.com",
+   "trackCount": "227"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "New York",
+   "title": "The Bank of New York Mellon",
+   "releaseYear": "BK",
+   "genre": "www.bnymellon.com",
+   "trackCount": "126"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Boston",
+   "title": "State Street Bank and Trust Company",
+   "releaseYear": "STT",
+   "genre": "http://www.statestreet.com",
+   "trackCount": "79"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Winston Salem",
+   "title": "Branch Banking and Trust Company",
+   "releaseYear": "BBT",
+   "genre": "www.BBT.com",
+   "trackCount": "163"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Atlanta",
+   "title": "SunTrust Bank",
+   "releaseYear": "STI",
+   "genre": "http://WWW.SUNTRUST.COM",
+   "trackCount": "162"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "London",
+   "title": "HSBC Bank USA, N.A.",
+   "releaseYear": "HSBC",
+   "genre": "www.banking.us.hsbc.com",
+   "trackCount": "128"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "",
+   "title": "Charles Schwab Bank",
+   "releaseYear": "SCHW",
+   "genre": "www.schwabbank.com",
+   "trackCount": "162"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "New York",
+   "title": "Goldman Sachs Bank USA",
+   "releaseYear": "GS",
+   "genre": "www.gsbank.com",
+   "trackCount": "105"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Cincinnati",
+   "title": "Fifth Third Bank",
+   "releaseYear": "FITB",
+   "genre": "https://www.53.com",
+   "trackCount": "104"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "New York",
+   "title": "Chase Bank USA, N.A.",
+   "releaseYear": "JPM",
+   "genre": "http://www.chase.com",
+   "trackCount": "41"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Cleveland",
+   "title": "KeyBank N.A.",
+   "releaseYear": "KEY",
+   "genre": "www.key.com",
+   "trackCount": "105"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Chicago",
+   "title": "The Northern Trust Company",
+   "releaseYear": "NTRS",
+   "genre": "www.northerntrust.com",
+   "trackCount": "36"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Detroit",
+   "title": "Ally Bank",
+   "releaseYear": "ALLY",
+   "genre": "http://www.ALLY.com",
+   "trackCount": "86"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "New York",
+   "title": "Morgan Stanley Bank, N.A.",
+   "releaseYear": "MS",
+   "genre": "",
+   "trackCount": "100"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Birmingham",
+   "title": "Regions Bank",
+   "releaseYear": "RF",
+   "genre": "http://www.regions.com",
+   "trackCount": "99"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Providence",
+   "title": "Citizens Bank, N.A.",
+   "releaseYear": "CFG",
+   "genre": "www.citizensbank.com",
+   "trackCount": "87"
+ },
+ {
+   "_class": "com.deloitte.dell.ojm.model.Album",
+   "artist": "Buffalo",
+   "title": "Manufacturers and Traders Trust Company",
+   "releaseYear": "MTB",
+   "genre": "http://www.mtb.com",
+   "trackCount": "94"
+ }
+]

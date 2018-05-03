@@ -1,0 +1,3549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="../dist/img/fav.png"/>
+
+    <title>Order Jeopardy Management Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- DataTables JavaScript -->
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.css">
+    
+  
+    
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+	<style>
+.navbar-default {
+    background-color: #0085c3;
+    border-color: #0085c3;
+}
+.userFontColor{
+	 color: white;
+}
+.navbar-top-links {
+    margin-top: 8px;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-top-links li a {
+  color: white;
+  padding-left: 4px;
+}
+.navbar-top-links .dropdown-user {
+    background: #0085c3;
+	margin-top: 10px;
+}
+.navbar-top-links .dropdown-alerts {
+	margin-top: 17px;
+    background: #0085c3;
+}
+.navbar-top-links .dropdown-messages {
+    background: #0085c3;
+	margin-top: 17px;
+}
+.userCircle{
+	border-radius: 50%;
+    height: 45px;
+    width: 45px;
+}
+#page-wrapper {
+     margin: 0px;
+}
+.navbar-brand {
+    height: 42px;
+    padding: 26px 15px;
+    font-size: 21px;
+    line-height: 17px;
+}
+.iconImg{
+    padding-top: 11px;
+    padding-left: 3px;
+	padding-bottom: 6px;
+	margin-left: 22px;
+}
+
+.badge{
+	margin-top: -15px;
+    background: #e6e62a;
+}
+
+.text-muted{
+	color:white;
+}
+.navbar-default .navbar-brand:hover{
+	opacity: 0.6;
+	color:white;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	color:white;
+	background-color:transparent;
+}
+.nav .open>a,.nav .open>a:hover, .nav>li>a:hover{
+	background-color:transparent;
+	opacity: 0.6;
+}
+.quotes1, .salesOrder1, .fulfillmentOrder1, .invoice1{
+	font-weight:bold;
+	width: 100%;
+    padding-left: 21px;
+	background: rgb(238,238,238);
+}
+
+.decoratorbox{
+	background-color: #EEEEEE;
+	text-align: center;
+	padding: 20px;
+}
+
+.whitetile {
+	background: #FFFFFF;
+	padding: 20px;
+	margin-left: 2%;
+	margin-right: 2%;
+	border: 5px #EEEEEE;
+	text-align: left;
+}
+
+
+body {
+	margin:0;
+	padding:0;
+	font-family: 'roboto',Arial,Helvetica,sans-serif;
+    zoom: 1;
+}
+.clear {
+	clear:both;
+}
+.header {
+	margin-top:2%;
+	width:100%;
+	text-align:center;
+}
+.header h1 {
+	font-family: 'roboto',Arial,Helvetica,sans-serif;
+	line-height:25px;
+	text-transform:uppercase;
+	color:grey;
+}
+.content{
+	width:100%;
+	height: 100px;
+	margin-top: 48px;
+	
+}
+.content1 {
+	background-color:#98d091;
+	text-align:center;
+	padding:2em;
+}
+.content1 h2 {
+	font-family: 'roboto',Arial,Helvetica,sans-serif;
+	text-transform:uppercase;
+	margin:0;
+	color:#fff;
+}
+.content2 {
+	background-color:#b5e6ae;
+}
+.content2-header1 {
+	float:left;
+	width:27%;
+	text-align:center;
+	padding:1.5em;
+}
+.content2-header1 p {
+	font-family: 'roboto',Arial,Helvetica,sans-serif;
+	font-size:16px;
+	font-weight:700;
+	color:#4E7D48;
+	margin:0;
+}
+.content2-header1 span {
+	font-size:14px;
+	font-weight:400;
+}
+.shipment {
+	width:100%;
+	margin-left:20px;
+}
+
+span.line {
+    height: 5px;
+    width: 90px;
+    background-color:#F5998E;
+    display: block;
+    position: absolute;
+    top: 28%;
+    left: 45%;
+}
+.quote .salesOrder .fulfillmentOrder .invoice {
+	text-align:left;
+	width:140px;
+	position:relative;
+	float:left;
+	margin-right:40px;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.labelText, .labelText:link, .labelText:hover, .labelText:hover, .labelText:visited{
+	color:#111111;
+	text-decoration: none;
+	padding: 5px;
+	font-size: 13pt;
+	margin-right: 40px;
+	width:140px;
+}
+.content3 p {
+	margin-left: -72%!important;
+	font-size:15px;
+	font-weight:600;
+} 
+
+.footer a, a:active {
+	color:grey;
+	text-decoration:none;
+	font-family: 'roboto',Arial,Helvetica,sans-serif;
+}
+.footer a:hover {
+	color:#00c4ff;
+	text-decoration:none;
+	transition:all 0.5s ease-in-out;
+}
+.footer {
+	margin-top:3%;
+	text-align:center;
+	font-weight:100;
+}
+.footer p {
+	color:grey;
+	font-size:15px;
+	font-family: 'roboto',Arial,Helvetica,sans-serif;
+	line-height:25px;
+}
+.dataTables_scrollHead{
+	color: white;
+    background: black;
+}
+
+.dataTables_wrapper{
+	margin-top: 30px;
+}
+.reviewButton{
+	background: deepskyblue;
+    color: white;
+    -webkit-appearance: listitem !important;
+}
+/*---- responsive-design -----*/
+@media(min-device-width: 768px) and (max-device-width: 1024px){
+.quotesLabel{
+	margin-right:22px;
+}
+.salesOrderLabel{
+	margin-right:22px;
+}
+.fulfillmentOrderLabel {
+    margin-right:22px;
+}
+.invoiceLabel {
+    margin-right:22px;
+}
+span.line {
+    width: 84% !important;
+    left: 17% !important;
+}
+}
+@media(max-width:1920px){
+	
+	.shipment{
+		margin-top:1%;
+	}
+.content3 p{
+margin-left:-65%;
+}
+}
+
+@media(max-width:1680px){
+	.content3 p {
+    margin-left: -60%;
+}
+
+}
+
+@media(max-width:1600px){
+
+}
+
+@media(max-width:1440px){
+.content3 p {
+    margin-left: -53%;
+}
+
+}
+
+@media (device-width: 1000px){
+
+.shipment {
+    margin-top: 1%;
+}
+span.line {
+    
+    left: 14% !important;
+}
+}
+
+@media (max-width: 1200px){
+span.line {
+    
+    left: 12%;
+}
+}
+
+@media (min-device-width: 1024px) and (max-device-width: 1366px){
+	span.line {
+    width: 99% ;
+    left: 12%;
+	top:29%;
+}
+}
+
+@media (max-width: 1080px){
+.content {
+	width: 95%;
+}
+}
+
+@media (min-width: 1050px){
+
+}
+
+@media (max-width: 1024px){
+	.content3 p {
+		font-size:14px;
+	}
+}
+
+@media (max-width: 991px){
+	.content {
+    width: 80%;
+}
+
+}
+
+@media (max-width: 900px){
+.content {
+    width: 85%;
+}
+
+}
+
+@media (max-width: 800px){
+.content {
+    width: 97%;
+}
+.content2-header1 p {
+	margin: 0 0 0 -7%;
+}
+
+}
+
+@media (max-width: 768px){
+.content2-header1 {
+	width: 25%;
+}
+.content2-header1 p {
+    margin: 0 -19% 0 -10%;
+}
+
+}
+
+@media (max-width: 736px){
+	span.line {
+    width: 62px;
+    left: 55%;
+}
+}
+
+@media (max-width: 667px){
+	.content2-header1 p {
+	font-size:14px;
+	}
+	.content2-header1 span {
+    font-size: 13px;
+}
+.shipment {
+    margin-top: 1%;
+}
+.content3 p {
+    font-size: 12px;
+	margin-left: -35%;
+}
+
+span.line {
+    width: 49px;
+    left: 60%;
+}
+}
+
+@media (max-width: 600px){
+	.content1 {
+		padding:1.2em;
+	}
+.content2-header1 p {
+    font-size: 13px;
+}
+.content2-header1 span {
+    font-size: 12px;
+}
+.content2-header1 {
+    width: 24%;
+}
+.imgcircle {
+    height: 65px;
+    width: 65px;
+}
+.imgcircle img{
+	top: 26%;
+    left: 27%;
+}
+.content3 p {
+	margin-left: -38%;
+	font-size:11px;
+}
+.content {
+	height: 395px;
+}
+span.line {
+    width: 50px;
+    left: 58%;
+}
+}
+
+@media (max-width: 568px){
+	.content{
+		height:380px;
+	}
+	.content1{
+	padding: 1em;
+}
+span.line {
+    width: 56px;
+    left: 47%;
+}
+.content2-header1 {
+    width: 23%;
+}
+.imgcircle {
+    height: 50px;
+    width: 50px;
+}
+.imgcircle img {
+    height: 25px;
+    top: 27%;
+    left: 25%;
+}
+.content3 p {
+    font-size: 10px;
+    margin-left: -46%;
+}
+
+}
+
+@media (max-width: 414px){
+	.header {
+    margin-top: 8%;
+}
+	.content {
+    width: 93%;
+	height:885px;
+	margin-top:9%;
+}
+	.content1 h2 {
+	font-size:22px;
+}
+	.content2-header1 {
+	padding:0.7em;
+    width: 80%;
+	margin-left: 3%;
+}
+	.content2-header1 p {
+    font-size: 19px;
+}
+	.content2-header1 span {
+    font-size: 16px;
+}
+
+.content3 p {
+    font-size: 15px;
+    margin: -12% 0 0 -72%;
+}
+	.shipment {
+    margin-left: 1%;
+}
+	.footer {
+	padding:1%;
+}
+	.footer p {
+	font-size:16px;
+}
+}
+
+@media (max-width: 384px){
+	.header {
+    margin-top: 9%;
+}
+	.content1 h2 {
+    font-size: 21px;
+}
+	.content3 p {
+    margin: -13% 0 0 -74%;
+}
+	.shipment {
+    margin: 1%;
+}
+	span.line {
+	top:154%;
+	left:44%;
+	height:52px;
+}
+	.content {
+    height: 845px;
+}
+	.footer {
+    padding: 3%;
+}
+	.footer p {
+    font-size: 15px;
+}
+}
+
+@media (max-width: 375px){
+	.content {
+    height: 840px;
+}
+	.content1 h2 {
+    font-size: 20px;
+}
+	span.line {
+    top: 149%;
+    left: 44.5%;
+    height: 51px;
+}
+	.shipment {
+    margin: 1%;
+}
+}
+
+@media (max-width: 320px){
+	.header {
+    margin-top: 10%;
+}
+	.content{
+	margin-top: 10%;
+}
+	.content1 {
+    padding: 1em;
+}
+	.header h1{
+	font-size:31px;
+}
+	.content {
+    height: 830px;
+}
+	.content1 h2 {
+    font-size: 17px;
+}
+	.content2-header1 span {
+    font-size: 15px;
+}
+	.content3 p {
+    margin: -16% 0 0 -79%;
+}
+	.shipment {
+    margin: 1%;
+}
+	span.line {
+    top: 115%;
+    left: 46%;
+}
+	.footer {
+	margin-top: 1%;
+}
+	.footer p {
+    font-size: 14px;
+}
+}
+
+.selectedWidget{
+	border-bottom: 2px solid #046A38;
+}
+
+.navlink{
+	color: #FFFFFF;
+}
+ 
+
+.divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHeading {
+	
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+.divGraphHeading {
+	font-weight: bold;
+}
+.divMetricsHeading {
+	font-weight: bolder;
+}
+
+
+   td.details-control{
+    background: url('https://raw.githubusercontent.com/DataTables/DataTables/1.10.7/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control{
+    background: url('https://raw.githubusercontent.com/DataTables/DataTables/1.10.7/examples/resources/details_close.png') no-repeat center center;
+}
+
+	
+
+
+
+
+
+	</style>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<div><img src="../dist/img/Web-Dell-alt-Metro-icon.png" alt="dellIcon" class="iconImg"/></div>
+                
+            </div>
+			<div><a class="navbar-brand" href="dashboard.html">Order Jeopardy Management Dashboard</a></div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+             
+                <!-- /.dropdown -->
+               
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i><span class="badge">5</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Invoice
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> In-Progress Order 
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+				
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+					<i class="userCircle"><img class="userCircle" src="../dist/img/profile.png"></i> <i class="fa fa-caret-down"></i>
+			
+			
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="../login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+			<!-- /.navbar-static-side -->
+			
+        </nav>
+
+	<div class="content3">
+        <div class="shipment">
+			<span class="quote">
+                <span class="navlink">
+					<a href="#" class="labelText"><i class="glyphicon glyphicon-pencil"></i>  Quotes</a>
+            	</span>
+			</span>
+			
+			<span class="salesOrder">
+           	 	<span class="navlink">
+                	<a href="#" class="labelText"><i class="glyphicon glyphicon-list-alt"></i> Sales Order</a>
+            	</span>
+			</span>
+			
+			<span class="fulfillmentOrder">
+				<span class="navlink">
+                	<a href="#" class="labelText"><i class="glyphicon glyphicon-road"></i> Fulfillment Order</a>
+            	</span>
+			</span>
+			
+			<span class="invoice">
+				<span class="navlink">
+                	<a href="#" class="labelText"><i class="glyphicon glyphicon-star"></i> Invoice</a>
+				</span>
+			</span>
+		</div>
+	</div>
+	
+        <div id="page-wrapper">
+	
+            <div class="row">
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+			<div class="divGraphHeading"></div>
+			<div class="container decoratorbox">
+			
+			<div class="row subtypeDetails" style="margin-top: 1%;padding-bottom: 1%;">
+			 
+				<div class="col-lg-5 col-md-6 whitetile">
+                    
+                            <div class="row">
+                                <div><iframe class="chartjs-hidden-iframe" tabindex="-1" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+    <canvas id="myChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="draftChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="validatedChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="salesDraftChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="submittedChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="onholdChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="fulfillmentChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="invoiceChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="pendingProdChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="inProcessChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="readyToShipChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="manifestChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+    <canvas id="cReceiptChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+	<canvas id="quoteChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+	<canvas id="salesOrderChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+	<canvas id="fulfillmentOrderChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>
+	<canvas id="invoiceAllChart" height="757" width="1516" style="display: block; width: 566px; height: 275px;"></canvas>    
+	
+  </div>
+                          
+                       
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 whitetile pull-right">
+					<!-- start of panels -->
+					<div class="row">
+						<div class="col-lg-4 col-md-4">
+							<div class="panel panel-default" style="height:120px;width:120px;">
+								<div class="panel-heading" style="text-align:center;color:#008000"><h2 class="inProgressBox"></h2></div>
+									<div class="panel-body" style="text-align:center;font-weight:bold;padding:10px">In Progress</div>
+								</div>
+						</div>
+
+						<div class="col-lg-4 col-md-4">
+							<div class="panel panel-default" style="height:120px;width:120px;">
+								<div class="panel-heading" style="text-align:center;color:#FFC300"><h2 class="alertsBox"></h2></div>
+									<div class="panel-body" style="text-align:center;font-weight:bold;padding:10px">Alerts</div>
+								</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="panel panel-default" style="height:120px;width:120px;">
+								<div class="panel-heading" style="text-align:center;color:#FF0000"><h2 class="pastDueBox"></h2></div>
+									<div class="panel-body" style="text-align:center;font-weight:bold;padding:10px">Past Due</div>
+								</div>
+						</div>
+					</div>
+					<!-- end of panels-->
+
+					<div class="divMetricsHeading"></div>
+					<div class="divTable" style="min-height: 20%;">
+						<div class="divTableBody"></div>
+					</div>
+				</div>
+			</div>
+			</div>
+			
+			<h3>Order Details</h3>
+			<div class="container decoratorbox">
+			<div class="row"></div>
+			 <table id="example" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+						<th></th>
+						<th>Order</th>
+						<th>Status</th>
+						<th>Sub-Status</th>
+						<th>Due Date</th> 
+					</tr>
+				</thead>
+    
+		</table>
+		<table id="draftTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>   
+        </tr>
+    </thead>
+    
+	</table>
+			
+			
+	<table id="validatedTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    
+    <table id="submittedTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+        </tr>
+    </thead>
+    
+	</table>
+	
+	<table id="salesDraftTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	
+	<table id="onholdTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	
+	<table id="invoiceTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	
+	<table id="fulfillmentTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	<table id="pendingProdTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	<table id="inProcessTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	<table id="readyToShipTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	<table id="manifestTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+	<table id="cReceiptTable" class="display" cellspacing="0" width="90%">
+    			<thead>
+        			<tr>
+            <th></th>
+            <th>Order</th>
+            <th>Status</th>
+            <th>Sub-Status</th>
+            <th>Due Date</th>
+         
+        </tr>
+    </thead>
+    
+	</table>
+			
+			
+		<!-- /.row -->
+        </div>
+			</div>
+		<!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0-rc.1/Chart.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+   
+  
+      <script type="text/javascript" src="https://cdn.datatables.net/r/dt/dt-1.10.9/datatables.min.js"></script>
+    
+  
+    
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.js"></script>
+    
+    <!-- Custom Theme JavaScript
+
+ <script src="../dist/js/sb-admin-2.js"></script>
+	-->
+   
+	<script type="text/javascript">//<![CDATA[
+
+
+
+
+
+
+$(".navlink").click(function(){
+
+	var parent = $(this).parent().attr('class');
+	if(parent == 'quote'){
+		$(".navlink").removeClass("selectedWidget");
+		$(this).addClass("selectedWidget");
+		
+		$.ajax({
+	        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/quote/all',
+			complete: function (response) {
+				console.log('quote description : '+response.responseJSON.description);
+				var inHTML = "";
+				var draftLabels=[];
+	            var draftCount = [];
+	        	
+	        	for (x in response.responseJSON.data) {
+	        		
+	        		draftLabels.push(response.responseJSON.data[x].title);
+	        		
+	        	}
+				for (x in response.responseJSON.data) {
+	        		
+					draftCount.push(response.responseJSON.data[x].count);
+	        		
+	        	}
+				
+				
+	        	var graphHeading = '<h3>'+response.responseJSON.title+'</h3>';
+				$(".divGraphHeading").html(graphHeading);
+				
+				var metricsHeading = '<h4>'+response.responseJSON.description+'</h4>';
+				$(".divMetricsHeading").html(metricsHeading);
+				
+				var inProgressCount = response.responseJSON.inProgressCount;
+				$(".inProgressBox").html(inProgressCount);
+				var alertsCount = response.responseJSON.alertsCount;
+				$(".alertsBox").html(alertsCount);
+				var pastDueCount = response.responseJSON.pastDueCount;
+				$(".pastDueBox").html(pastDueCount);
+				
+	        	var tableHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><b>Status</b></div>'+
+	    			'<div class="divTableCell" style="color:#008000"><b>In Progress</b></div>'+
+	    			'<div class="divTableCell" style="color:#FFC300"><b>Alerts</b></div>'+
+	    			'<div class="divTableCell" style="color:#FF0000"><b>Past Due</b></div>'+
+	    			'<div class="divTableCell"><b>Total</b></div></div>';
+	    						
+	    		$(".divTableBody").html(tableHeading);
+	    		
+	    		$.each(response.responseJSON.data, function(index, value){
+	        	    var newItem = '<div class="divTableRow"><div class="divTableCell">'+value.title+'</div>'+
+	        			'<div class="divTableCell">&nbsp;'+value.countInProgress+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countAlerts+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countPastDue+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.count+'</div>'+
+						'</div>';
+	        	    
+	        			inHTML += newItem; 
+	        	});
+
+	        	$(".divTableBody").append(inHTML);
+	  
+	        	$("#myChart").hide();
+	        	$("#validatedChart").hide();
+	        	$("#salesDraftChart").hide();
+	        	$("#submittedChart").hide();
+	        	$("#onholdChart").hide();
+	        	$("#fulfillmentChart").hide();
+	        	$("#invoiceChart").hide();
+	        	$("#pendingProdChart").hide();
+	        	$("#inProcessChart").hide();
+	        	$("#readyToShipChart").hide();
+	        	$("#manifestChart").hide();
+	        	$("#cReceiptChart").hide();
+	        	$("#draftChart").hide();
+	        	$("#salesOrderChart").hide();
+	        	$("#fulfillmentOrderChart").hide();
+	        	$("#invoiceAllChart").hide();
+	        	$("#quoteChart").show();
+	        	
+				var draftChart = document.getElementById("quoteChart").getContext('2d');
+				
+	        	var chart = new Chart(draftChart, {
+	        	  type: 'pie',
+	        	  data: {
+	        	    labels: draftLabels,
+	        	    datasets: [{
+	        	      backgroundColor: [
+	        	        "#2ecc71",
+	        	        "#3498db",
+	        	        "#e74c3c"
+	        	        
+	        	      ],
+	        	      data: draftCount
+	        	    }]
+	        	  }
+	        	});
+			
+			},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+	}
+	else if(parent == 'salesOrder'){
+		$(".navlink").removeClass("selectedWidget");
+		$(this).addClass("selectedWidget");
+		
+		$.ajax({
+	        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/sales-order/all',
+			complete: function (response) {
+				console.log('sales order description : '+response.responseJSON.description);
+				var inHTML = "";
+				var salesDraftLabels=[];
+	            var salesDraftCount = [];
+	        	
+	        	for (x in response.responseJSON.data) {
+	        		
+	        		salesDraftLabels.push(response.responseJSON.data[x].title);
+	        		
+	        	}
+				for (x in response.responseJSON.data) {
+	        		
+					salesDraftCount.push(response.responseJSON.data[x].count);
+	        		
+	        	}
+				
+				
+	        	var graphHeading = '<h3>'+response.responseJSON.title+'</h3>';
+				$(".divGraphHeading").html(graphHeading);
+				
+				var metricsHeading = '<h4>'+response.responseJSON.description+'</h4>';
+				$(".divMetricsHeading").html(metricsHeading);
+				
+				
+				var inProgressCount = response.responseJSON.inProgressCount;
+				$(".inProgressBox").html(inProgressCount);
+				var alertsCount = response.responseJSON.alertsCount;
+				$(".alertsBox").html(alertsCount);
+				var pastDueCount = response.responseJSON.pastDueCount;
+				$(".pastDueBox").html(pastDueCount);
+				
+	        	var tableHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><b>Status</b></div>'+
+	    			'<div class="divTableCell" style="color:#008000"><b>In Progress</b></div>'+
+	    			'<div class="divTableCell" style="color:#FFC300"><b>Alerts</b></div>'+
+	    			'<div class="divTableCell" style="color:#FF0000"><b>Past Due</b></div>'+
+	    			'<div class="divTableCell"><b>Total</b></div></div>';
+	    						
+	    		$(".divTableBody").html(tableHeading);
+	    		
+	    		$.each(response.responseJSON.data, function(index, value){
+	        	    var newItem = '<div class="divTableRow"><div class="divTableCell">'+value.title+'</div>'+
+	        			'<div class="divTableCell">&nbsp;'+value.countInProgress+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countAlerts+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countPastDue+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.count+'</div>'+
+						'</div>';
+	        	    
+	        			inHTML += newItem; 
+	        	});
+
+	        	$(".divTableBody").append(inHTML);
+	        	
+	        	$("#myChart").hide();
+	        	$("#draftChart").hide();
+	        	$("#validatedChart").hide();
+	        	$("#submittedChart").hide();
+	        	$("#onholdChart").hide();
+	        	$("#fulfillmentChart").hide();
+	        	$("#invoiceChart").hide();
+	        	$("#pendingProdChart").hide();
+	        	$("#inProcessChart").hide();
+	        	$("#readyToShipChart").hide();
+	        	$("#manifestChart").hide();
+	        	$("#cReceiptChart").hide();
+	        	$("#quoteChart").hide();
+	        	$("#fulfillmentOrderChart").hide();
+	        	$("#invoiceAllChart").hide();
+	        	$("#salesDraftChart").hide();
+	        	$("#salesOrderChart").show();
+				var salesDraftChart = document.getElementById("salesOrderChart").getContext('2d');
+				
+	        	var chart = new Chart(salesDraftChart, {
+	        	  type: 'pie',
+	        	  data: {
+	        	    labels: salesDraftLabels,
+	        	    datasets: [{
+	        	      backgroundColor: [
+	        	        "#2ecc71",
+	        	        "#3498db",
+	        	        "#e74c3c"
+	        	        
+	        	      ],
+	        	      data: salesDraftCount
+	        	    }]
+	        	  }
+	        	});
+			},
+			error: function () {
+				$('.divTableBody').html('CrossDomain: there was an error!');
+			},
+		});
+		return false;
+	}
+	else if(parent == 'fulfillmentOrder'){
+		$(".navlink").removeClass("selectedWidget");
+		$(this).addClass("selectedWidget");
+		
+		$.ajax({
+	        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/fulfillment-order/all',
+			complete: function (response) {
+				console.log('draft description : '+response.responseJSON.description);
+				var inHTML = "";
+				
+				var prodLabels=[];
+	            var prodCount = [];
+	        	
+	        	for (x in response.responseJSON.data) {
+	        		
+	        		prodLabels.push(response.responseJSON.data[x].title);
+	        		
+	        	}
+				for (x in response.responseJSON.data) {
+	        		
+					prodCount.push(response.responseJSON.data[x].count);
+	        		
+	        	}
+				
+				
+	        	var graphHeading = '<h3>'+response.responseJSON.title+'</h3>';
+				$(".divGraphHeading").html(graphHeading);
+				
+				var metricsHeading = '<h4>'+response.responseJSON.description+'</h4>';
+				$(".divMetricsHeading").html(metricsHeading);
+				
+				
+				var inProgressCount = response.responseJSON.inProgressCount;
+				$(".inProgressBox").html(inProgressCount);
+				var alertsCount = response.responseJSON.alertsCount;
+				$(".alertsBox").html(alertsCount);
+				var pastDueCount = response.responseJSON.pastDueCount;
+				$(".pastDueBox").html(pastDueCount);
+				
+	        	var tableHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><b>Status</b></div>'+
+	    			'<div class="divTableCell" style="color:#008000"><b>In Progress</b></div>'+
+	    			'<div class="divTableCell" style="color:#FFC300"><b>Alerts</b></div>'+
+	    			'<div class="divTableCell" style="color:#FF0000"><b>Past Due</b></div>'+
+	    			'<div class="divTableCell"><b>Total</b></div></div>';
+	    						
+	    		$(".divTableBody").html(tableHeading);
+	    		
+	    		$.each(response.responseJSON.data, function(index, value){
+	        	    var newItem = '<div class="divTableRow"><div class="divTableCell">'+value.title+'</div>'+
+	        			'<div class="divTableCell">&nbsp;'+value.countInProgress+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countAlerts+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countPastDue+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.count+'</div>'+
+						'</div>';
+	        	    
+	        			inHTML += newItem; 
+	        	});
+
+	        	$(".divTableBody").append(inHTML);
+	        	
+	        	$("#myChart").hide();
+	        	$("#draftChart").hide();
+	        	$("#validatedChart").hide();
+	        	$("#salesDraftChart").hide();
+	        	$("#submittedChart").hide();
+	        	$("#onholdChart").hide();
+	        	$("#fulfillmentChart").hide();
+	        	$("#invoiceChart").hide();
+	        	$("#inProcessChart").hide();
+	        	$("#readyToShipChart").hide();
+	        	$("#manifestChart").hide();
+	        	$("#cReceiptChart").hide();
+	        	$("#pendingProdChart").hide();
+	        	$("#quoteChart").hide();
+	        	$("#invoiceAllChart").hide();
+	        	$("#salesOrderChart").hide();
+	        	$("#fulfillmentOrderChart").show();
+	        	
+				var prodChart = document.getElementById("fulfillmentOrderChart").getContext('2d');
+				
+	        	var chart = new Chart(prodChart, {
+	        	  type: 'pie',
+	        	  data: {
+	        	    labels: prodLabels,
+	        	    datasets: [{
+	        	      backgroundColor: [
+	        	        "#2ecc71",
+	        	        "#3498db",
+	        	        "#e74c3c",
+	        	        "#FFFF00"
+	        	        
+	        	      ],
+	        	      data: prodCount
+	        	    }]
+	        	  }
+	        	});
+			},
+			error: function () {
+				$('.divTableBody').html('CrossDomain: there was an error!');
+			},
+		});
+		return false;	
+	}
+	else if(parent == 'invoice'){
+		$(".navlink").removeClass("selectedWidget");
+		$(this).addClass("selectedWidget");
+		
+		$.ajax({
+	        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/invoice/all',
+			complete: function (response) {
+				console.log('invoice description : '+response.responseJSON.description);
+				var inHTML = "";
+				
+				var invoiceLabels=[];
+	            var invoiceCount = [];
+	        	
+	        	for (x in response.responseJSON.data) {
+	        		
+	        		invoiceLabels.push(response.responseJSON.data[x].title);
+	        		
+	        	}
+				for (x in response.responseJSON.data) {
+	        		
+					invoiceCount.push(response.responseJSON.data[x].count);
+	        		
+	        	}
+				
+				
+	        	var graphHeading = '<h3>'+response.responseJSON.title+'</h3>';
+				$(".divGraphHeading").html(graphHeading);
+				
+				var metricsHeading = '<h4>'+response.responseJSON.description+'</h4>';
+				$(".divMetricsHeading").html(metricsHeading);
+				
+				
+				var inProgressCount = response.responseJSON.inProgressCount;
+				$(".inProgressBox").html(inProgressCount);
+				var alertsCount = response.responseJSON.alertsCount;
+				$(".alertsBox").html(alertsCount);
+				var pastDueCount = response.responseJSON.pastDueCount;
+				$(".pastDueBox").html(pastDueCount);
+				
+	        	var tableHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><b>Status</b></div>'+
+	    			'<div class="divTableCell" style="color:#008000"><b>In Progress</b></div>'+
+	    			'<div class="divTableCell" style="color:#FFC300"><b>Alerts</b></div>'+
+	    			'<div class="divTableCell" style="color:#FF0000"><b>Past Due</b></div>'+
+	    			'<div class="divTableCell"><b>Total</b></div></div>';
+	    						
+	    		$(".divTableBody").html(tableHeading);
+	    		
+	    		$.each(response.responseJSON.data, function(index, value){
+	        	    var newItem = '<div class="divTableRow"><div class="divTableCell">'+value.title+'</div>'+
+	        			'<div class="divTableCell">&nbsp;'+value.countInProgress+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countAlerts+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.countPastDue+'</div>'+
+						'<div class="divTableCell">&nbsp;'+value.count+'</div>'+
+						'</div>';
+	        	    
+	        			inHTML += newItem; 
+	        	});
+
+	        	$(".divTableBody").append(inHTML);
+	        	
+	        	$("#myChart").hide();
+	        	$("#draftChart").hide();
+	        	$("#validatedChart").hide();
+	        	$("#salesDraftChart").hide();
+	        	$("#submittedChart").hide();
+	        	$("#onholdChart").hide();
+	        	$("#fulfillmentChart").hide();
+	        	$("#pendingProdChart").hide();
+	        	$("#inProcessChart").hide();
+	        	$("#readyToShipChart").hide();
+	        	$("#manifestChart").hide();
+	        	$("#cReceiptChart").hide();
+	        	$("#invoiceChart").hide();
+	        	$("#quoteChart").hide();
+	        	$("#salesOrderChart").hide();
+	        	$("#fulfillmentOrderChart").hide();
+	        	$("#invoiceAllChart").show();
+	        	
+				var invoiceChart = document.getElementById("invoiceAllChart").getContext('2d');
+				
+	        	var chart = new Chart(invoiceChart, {
+	        	  type: 'pie',
+	        	  data: {
+	        	    labels: invoiceLabels,
+	        	    datasets: [{
+	        	      backgroundColor: [
+	        	        "#2ecc71",
+	        	        "#3498db",
+	        	        "#e74c3c"
+	        	        
+	        	      ],
+	        	      data: invoiceCount
+	        	    }]
+	        	  }
+	        	});
+			},
+			error: function () {
+				$('.divTableBody').html('CrossDomain: there was an error!');
+			},
+		});
+		return false;
+	}
+ 
+});
+
+$(".subtypes").on("click", "div a", function(){
+	$(".subtypeDetails").show();
+	var subtype = $(this).attr('id');
+	if(subtype == 'draft'){
+		draftFunction();
+	}
+	if(subtype == 'validated'){
+		validatedFunction();
+	}
+	if(subtype == 'salesOrderDraft'){
+		salesDraftFunction();
+	}
+	if(subtype == 'submitted'){
+		submittedFunction();
+	}
+	if(subtype == 'onHold'){
+		onHold();
+	}
+	if(subtype == 'droppedToFulfillment'){
+		fulfillment();
+	}
+	if(subtype == 'pendingProd'){
+		pendingProd();		
+	}
+	if(subtype == 'inProcess'){
+		inProcess();
+		
+	}
+	if(subtype == 'readyToShip'){
+		readyToShip();
+		
+	}
+	if(subtype == 'manifest'){
+		manifest();
+		
+	}
+	if(subtype == 'custReceipt'){
+		cReceipt();
+	}
+	if(subtype == 'invoice'){
+		invoice();
+	}
+	});
+	
+	
+function draftFunction(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/quote/draft',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			var draftLabels=[];
+            var draftCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		draftLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				draftCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	$("#myChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#draftChart").show();
+			var draftChart = document.getElementById("draftChart").getContext('2d');
+			
+        	var chart = new Chart(draftChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: draftLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: draftCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#draftTable").show();
+        	 
+        	var table = $('#draftTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/quotes/draft',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'desc']]
+            } );
+        	$('#draftTable tbody').on('click', 'td.details-control', function () {
+                var draftTableTr = $(this).closest('tr');
+                var draftTableRow = table.row( draftTableTr );
+
+                if ( draftTableRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', draftTableRow.child()).slideUp( function () {
+                    	draftTableRow.child.hide();
+                    	draftTableTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    draftTableRow.child( format(draftTableRow.data()), 'no-padding' ).show();
+                    draftTableTr.addClass('shown');
+
+                    $('div.slider', draftTableRow.child()).slideDown();
+                }
+            } );
+
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		
+	
+}
+
+function validatedFunction(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/quote/validated',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+		
+			var inHTML = "";
+			var validatedLabels=[];
+            var validatedCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		validatedLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				validatedCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#salesDraftChart").hide();	
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#validatedChart").show();
+			var validatedChart = document.getElementById("validatedChart").getContext('2d');
+			
+        	var chart = new Chart(validatedChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: validatedLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: validatedCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide(); 
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#validatedTable").show();
+        	var table = $('#validatedTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/quotes/validated',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'desc']]
+            } );
+        	$('#validatedTable tbody').on('click', 'td.details-control', function () {
+                var validatedTr = $(this).closest('tr');
+                var validatedRow = table.row( validatedTr );
+
+                if ( validatedRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', validatedRow.child()).slideUp( function () {
+                    	validatedRow.child.hide();
+                    	validatedTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    validatedRow.child( format(validatedRow.data()), 'no-padding' ).show();
+                    validatedTr.addClass('shown');
+
+                    $('div.slider', validatedRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		
+}
+
+function salesDraftFunction(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/sales-order/draft',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			var salesDraftLabels=[];
+            var salesDraftCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		salesDraftLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				salesDraftCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#salesDraftChart").show();
+        	
+			var salesDraftChart = document.getElementById("salesDraftChart").getContext('2d');
+			
+        	var chart = new Chart(salesDraftChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: salesDraftLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: salesDraftCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#salesDraftTable").show();
+        
+        	var table = $('#salesDraftTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/sales-order/draft',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#salesDraftTable tbody').on('click', 'td.details-control', function () {
+                var salesdraftTr = $(this).closest('tr');
+                var salesdraftRow = table.row( salesdraftTr );
+
+                if ( salesdraftRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', salesdraftRow.child()).slideUp( function () {
+                    	salesdraftRow.child.hide();
+                    	salesdraftTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    salesdraftRow.child( format(salesdraftRow.data()), 'no-padding' ).show();
+                    salesdraftTr.addClass('shown');
+
+                    $('div.slider', salesdraftRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		
+}
+
+function submittedFunction(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/sales-order/submitted',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			
+			var submittedLabels=[];
+            var submittedCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		submittedLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				submittedCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#submittedChart").show();
+        	
+			var submittedChart = document.getElementById("submittedChart").getContext('2d');
+			
+        	var chart = new Chart(submittedChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: submittedLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: submittedCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#submittedTable").show();
+        	
+        	var table = $('#submittedTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/sales-order/submitted',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#submittedTable tbody').on('click', 'td.details-control', function () {
+                var submittedTr = $(this).closest('tr');
+                var submittedRow = table.row( submittedTr );
+
+                if ( submittedRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', submittedRow.child()).slideUp( function () {
+                    	submittedRow.child.hide();
+                    	submittedTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    submittedRow.child( format(submittedRow.data()), 'no-padding' ).show();
+                    submittedTr.addClass('shown');
+
+                    $('div.slider', submittedRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		}
+
+function onHold(){
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/sales-order/on-hold',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			
+			var onholdLabels=[];
+            var onholdCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		onholdLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				onholdCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#onholdChart").show();
+        	
+			var onholdChart = document.getElementById("onholdChart").getContext('2d');
+			
+        	var chart = new Chart(onholdChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: onholdLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: onholdCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#onholdTable").show();
+        	
+        	var table = $('#onholdTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/sales-order/on-hold',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#onholdTable tbody').on('click', 'td.details-control', function () {
+                var onholdTr = $(this).closest('tr');
+                var onholdRow = table.row( onholdTr );
+
+                if ( onholdRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', onholdRow.child()).slideUp( function () {
+                    	onholdRow.child.hide();
+                    	onholdTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    onholdRow.child( format(onholdRow.data()), 'no-padding' ).show();
+                    onholdTr.addClass('shown');
+
+                    $('div.slider', onholdRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		
+}
+
+function fulfillment(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/sales-order/dropped-to-fulfillment',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			var fulfillLabels=[];
+            var fulfillCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		fulfillLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				fulfillCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#fulfillmentChart").show();
+        	
+			var fulfillmentChart = document.getElementById("fulfillmentChart").getContext('2d');
+			
+        	var chart = new Chart(fulfillmentChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: fulfillLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: fulfillCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#fulfillmentTable").show();
+        	
+        	var table = $('#fulfillmentTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/sales-order/dropped-to-fulfillment',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#fulfillmentTable tbody').on('click', 'td.details-control', function () {
+                var fulfillTr = $(this).closest('tr');
+                var fulfillRow = table.row( fulfillTr );
+
+                if ( fulfillRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', fulfillRow.child()).slideUp( function () {
+                    	fulfillRow.child.hide();
+                    	fulfillTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    fulfillRow.child( format(fulfillRow.data()), 'no-padding' ).show();
+                    fulfillTr.addClass('shown');
+                    $('div.slider', fulfillRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		
+}
+
+function invoice(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/invoice/invoice-not-created',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			
+			var invoiceLabels=[];
+            var invoiceCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		invoiceLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				invoiceCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#invoiceChart").show();
+        	
+			var invoiceChart = document.getElementById("invoiceChart").getContext('2d');
+			
+        	var chart = new Chart(invoiceChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: invoiceLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: invoiceCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#invoiceTable").show();
+        	
+        	var table = $('#invoiceTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/invoice/invoice-not-created',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#invoiceTable tbody').on('click', 'td.details-control', function () {
+                var invoiceTr = $(this).closest('tr');
+                var invoiceRow = table.row( invoiceTr );
+
+                if ( invoiceRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', invoiceRow.child()).slideUp( function () {
+                    	invoiceRow.child.hide();
+                    	invoiceTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    invoiceRow.child( format(invoiceRow.data()), 'no-padding' ).show();
+                    invoiceTr.addClass('shown');
+                    $('div.slider', invoiceRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+	
+}
+
+function pendingProd(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/fulfillment-order/pending-production',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			
+			var prodLabels=[];
+            var prodCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		prodLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				prodCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#pendingProdChart").show();
+        	
+			var prodChart = document.getElementById("pendingProdChart").getContext('2d');
+			
+        	var chart = new Chart(prodChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: prodLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: prodCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#pendingProdTable").show();
+        	
+        	var table = $('#pendingProdTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/fulfillment-order/pending-production',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#pendingProdTable tbody').on('click', 'td.details-control', function () {
+        		var prodTr = $(this).closest('tr');
+                var prodRow = table.row( prodTr );
+
+                if ( prodRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', prodRow.child()).slideUp( function () {
+                    	prodRow.child.hide();
+                    	prodTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    prodRow.child( format(prodRow.data()), 'no-padding' ).show();
+                    prodTr.addClass('shown');
+                    $('div.slider', prodRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+}
+
+function inProcess(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/fulfillment-order/in-process',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			var processLabels=[];
+            var processCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		processLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				processCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#inProcessChart").show();
+			var processChart = document.getElementById("inProcessChart").getContext('2d');
+			
+        	var chart = new Chart(processChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: processLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: processCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#inProcessTable").show();
+        	
+        	var table = $('#inProcessTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/fulfillment-order/in-process',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#inProcessTable tbody').on('click', 'td.details-control', function () {
+        		var processTr = $(this).closest('tr');
+                var processRow = table.row( processTr );
+
+                if ( processRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', processRow.child()).slideUp( function () {
+                    	processRow.child.hide();
+                    	processTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    processRow.child( format(processRow.data()), 'no-padding' ).show();
+                    processTr.addClass('shown');
+                    $('div.slider', processRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+}
+
+function readyToShip(){
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/fulfillment-order/ready-to-ship',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			var shipLabels=[];
+            var shipCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		shipLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				shipCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#readyToShipChart").show();
+			var shipChart = document.getElementById("readyToShipChart").getContext('2d');
+			
+        	var chart = new Chart(shipChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: shipLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: shipCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#readyToShipTable").show();
+        	var table = $('#readyToShipTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/fulfillment-order/ready-to-ship',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#readyToShipTable tbody').on('click', 'td.details-control', function () {
+        		var shipTr = $(this).closest('tr');
+                var shipRow = table.row( shipTr );
+
+                if ( shipRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', shipRow.child()).slideUp( function () {
+                    	shipRow.child.hide();
+                    	shipTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    shipRow.child( format(shipRow.data()), 'no-padding' ).show();
+                    shipTr.addClass('shown');
+                    $('div.slider', shipRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+}
+
+function manifest(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/fulfillment-order/manifest',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			var manifestLabels=[];
+            var manifestCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		manifestLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				manifestCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#manifestChart").show();
+			var manifestChart = document.getElementById("manifestChart").getContext('2d');
+			
+        	var chart = new Chart(manifestChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: manifestLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: manifestCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#cReceiptTable_wrapper").hide();
+        	$("#manifestTable").show();
+        	var table = $('#manifestTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/fulfillment-order/manifest',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#manifestTable tbody').on('click', 'td.details-control', function () {
+        		var manifestTr = $(this).closest('tr');
+                var manifestRow = table.row( manifestTr );
+
+                if ( manifestRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', manifestRow.child()).slideUp( function () {
+                    	manifestRow.child.hide();
+                    	manifestTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    manifestRow.child( format(manifestRow.data()), 'no-padding' ).show();
+                    manifestTr.addClass('shown');
+                    $('div.slider', manifestRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+		
+}
+
+function cReceipt(){
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/summary/fulfillment-order/customer-receipt',
+		complete: function (response) {
+			console.log('draft description : '+response.responseJSON.description);
+			var inHTML = "";
+			
+			var receiptLabels=[];
+            var receiptCount = [];
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		receiptLabels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+				receiptCount.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        	var graphHeading = '<div class="divTableRow">'+
+	    			'<div class="divTableCell"><h3>'+response.responseJSON.description+'</h3></div></div>';
+				$(".divGraphHeading").html(graphHeading);
+				
+        	var tableHeading = '<div class="divTableRow">'+
+    			'<div class="divTableCell">&nbsp;<b>Status:</b></div>'+
+    			'<div class="divTableCell">'+response.responseJSON.description+'</div></div>';
+    		
+    		$(".divTableBody").html(tableHeading);
+    		
+    		$.each(response.responseJSON.data, function(index, value){
+        	    var newItem = '<div class="divTableRow"><div class="divTableCell">&nbsp;</div>'+
+        			'<div class="divTableCell">&nbsp;'+value.count+' '+value.title+'</div></div>';
+        	    
+        			inHTML += newItem; 
+        	});
+
+        	$(".divTableBody").append(inHTML);
+        	
+        	$("#myChart").hide();
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#submittedChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#invoiceChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#quoteChart").hide();
+          	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#cReceiptChart").show();
+			var receiptChart = document.getElementById("cReceiptChart").getContext('2d');
+			
+        	var chart = new Chart(receiptChart, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: receiptLabels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: receiptCount
+        	    }]
+        	  }
+        	});
+        	
+        	$("#example_wrapper").hide();
+        	$("#draftTable_wrapper").hide();
+        	$("#validatedTable_wrapper").hide();
+        	$("#salesDraftTable_wrapper").hide();
+        	$("#submittedTable_wrapper").hide();
+        	$("#onholdTable_wrapper").hide();
+        	$("#fulfillmentTable_wrapper").hide();
+        	$("#invoiceTable_wrapper").hide();
+        	$("#pendingProdTable_wrapper").hide();
+        	$("#inProcessTable_wrapper").hide();
+        	$("#readyToShipTable_wrapper").hide();
+        	$("#manifestTable_wrapper").hide();
+        	$("#cReceiptTable").show();
+        	var table = $('#cReceiptTable').DataTable( {
+        		destroy: true,
+                "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/fulfillment-order/customer-receipt',
+                scrollY:        250,
+            	deferRender:    true,
+            	scroller:       true,
+                "columns": [
+                    {
+                        "class":          'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": ''
+                    },
+                    { "data": "orderTitle" },
+                    { "data": "status" }, 
+                    { "data": "subStatus" }, 
+                    { "data": "dueDate" ,
+                        "render": function ( data, type, row ) {
+                        	 if ( type === 'display' || type === 'filter' ) {
+                                 var d = new Date( data );
+                                 //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                                 var date= d.toDateString();
+                                 return date.substr(3,7)+', '+date.substr(10);
+                             }
+                        	 return data;
+                        }
+                        }
+                   
+                    
+                ],
+                "order": [[1,'asc']]
+            } );
+        	$('#cReceiptTable tbody').on('click', 'td.details-control', function () {
+        		var receiptTr = $(this).closest('tr');
+                var receiptRow = table.row( receiptTr );
+
+                if ( receiptRow.child.isShown() ) {
+                    // This row is already open - close it
+                    $('div.slider', receiptRow.child()).slideUp( function () {
+                    	receiptRow.child.hide();
+                    	receiptTr.removeClass('shown');
+                    } );
+                }
+                else {
+                    // Open this row
+                    receiptRow.child( format(receiptRow.data()), 'no-padding' ).show();
+                    receiptTr.addClass('shown');
+                    $('div.slider', receiptRow.child()).slideDown();
+                }
+            } );
+		},
+		error: function () {
+			$('.divTableBody').html('CrossDomain: there was an error!');
+		},
+	});
+	return false;
+}
+</script>
+
+<script type="text/javascript">//<![CDATA[
+
+/* Formatting function for row details - modify as you need */
+function format ( d ) {
+    // `d` is the original data object for the row
+    return '<div class="slider" style="margin-left: 73px;">'+
+        '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+            '<tr>'+
+                '<td>Detail Title 1:</td>'+
+                '<td>'+d.orderDetails.DetailTitle1+'</td>'+
+            '</tr>'+
+            '<tr>'+
+                '<td>Detail Title 2:</td>'+
+                '<td>'+d.orderDetails.DetailTitle2+'</td>'+
+            '</tr>'+
+            '<tr>'+
+                '<td>Detail Title 3:</td>'+
+                '<td>'+d.orderDetails.DetailTitle3+'</td>'+
+            '</tr>'+
+            '<tr>'+
+            '<td></td>'+
+            '<td><form action="'+d.reviewLink+'"><input type="submit" class="reviewButton" value="Review" /></form></td>'+
+        '</tr>'+
+        '</table>'+
+    '</div>';
+}
+
+$(document).ready(function() {
+	
+	$(".subtypes").hide();
+	$("#draftTable").hide();
+	$("#validatedTable").hide();
+	$("#salesDraftTable").hide();
+	$("#submittedTable").hide();
+	$("#onholdTable").hide();
+	$("#fulfillmentTable").hide();
+	$("#pendingProdTable").hide();
+	$("#inProcessTable").hide();
+	$("#readyToShipTable").hide();
+	$("#manifestTable").hide();
+	$("#cReceiptTable").hide();
+	$("#invoiceTable").hide();
+	
+	$("#Table").hide();
+	
+	/*$(".subtypes").html('<div class = "quotes1">'+
+				'<a href="#">Draft</a>&nbsp;|&nbsp;<a href="#">Validated</a>'+
+			'</div>');*/
+			
+			
+			// url ={"data":[{"name":"Tiger Nixon","position":"System Architect","salary":"$320,800","start_date":"2011/04/25","office":"Edinburgh","extn":"5421"},{"name":"Garrett Winters","position":"Accountant","salary":"$170,750","start_date":"2011/07/25","office":"Tokyo","extn":"8422"},{"name":"Ashton Cox","position":"Junior Technical Author","salary":"$86,000","start_date":"2009/01/12","office":"San Francisco","extn":"1562"},{"name":"Cedric Kelly","position":"Senior Javascript Developer","salary":"$433,060","start_date":"2012/03/29","office":"Edinburgh","extn":"6224"},{"name":"Airi Satou","position":"Accountant","salary":"$162,700","start_date":"2008/11/28","office":"Tokyo","extn":"5407"},{"name":"Brielle Williamson","position":"Integration Specialist","salary":"$372,000","start_date":"2012/12/02","office":"New York","extn":"4804"},{"name":"Herrod Chandler","position":"Sales Assistant","salary":"$137,500","start_date":"2012/08/06","office":"San Francisco","extn":"9608"},{"name":"Rhona Davidson","position":"Integration Specialist","salary":"$327,900","start_date":"2010/10/14","office":"Tokyo","extn":"6200"},{"name":"Colleen Hurst","position":"Javascript Developer","salary":"$205,500","start_date":"2009/09/15","office":"San Francisco","extn":"2360"},{"name":"Sonya Frost","position":"Software Engineer","salary":"$103,600","start_date":"2008/12/13","office":"Edinburgh","extn":"1667"},{"name":"Jena Gaines","position":"Office Manager","salary":"$90,560","start_date":"2008/12/19","office":"London","extn":"3814"},{"name":"Quinn Flynn","position":"Support Lead","salary":"$342,000","start_date":"2013/03/03","office":"Edinburgh","extn":"9497"},{"name":"Charde Marshall","position":"Regional Director","salary":"$470,600","start_date":"2008/10/16","office":"San Francisco","extn":"6741"},{"name":"Haley Kennedy","position":"Senior Marketing Designer","salary":"$313,500","start_date":"2012/12/18","office":"London","extn":"3597"},{"name":"Tatyana Fitzpatrick","position":"Regional Director","salary":"$385,750","start_date":"2010/03/17","office":"London","extn":"1965"},{"name":"Michael Silva","position":"Marketing Designer","salary":"$198,500","start_date":"2012/11/27","office":"London","extn":"1581"},{"name":"Paul Byrd","position":"Chief Financial Officer (CFO)","salary":"$725,000","start_date":"2010/06/09","office":"New York","extn":"3059"},{"name":"Gloria Little","position":"Systems Administrator","salary":"$237,500","start_date":"2009/04/10","office":"New York","extn":"1721"},{"name":"Bradley Greer","position":"Software Engineer","salary":"$132,000","start_date":"2012/10/13","office":"London","extn":"2558"},{"name":"Dai Rios","position":"Personnel Lead","salary":"$217,500","start_date":"2012/09/26","office":"Edinburgh","extn":"2290"},{"name":"Jenette Caldwell","position":"Development Lead","salary":"$345,000","start_date":"2011/09/03","office":"New York","extn":"1937"},{"name":"Yuri Berry","position":"Chief Marketing Officer (CMO)","salary":"$675,000","start_date":"2009/06/25","office":"New York","extn":"6154"},{"name":"Caesar Vance","position":"Pre-Sales Support","salary":"$106,450","start_date":"2011/12/12","office":"New York","extn":"8330"},{"name":"Doris Wilder","position":"Sales Assistant","salary":"$85,600","start_date":"2010/09/20","office":"Sidney","extn":"3023"},{"name":"Angelica Ramos","position":"Chief Executive Officer (CEO)","salary":"$1,200,000","start_date":"2009/10/09","office":"London","extn":"5797"},{"name":"Gavin Joyce","position":"Developer","salary":"$92,575","start_date":"2010/12/22","office":"Edinburgh","extn":"8822"},{"name":"Jennifer Chang","position":"Regional Director","salary":"$357,650","start_date":"2010/11/14","office":"Singapore","extn":"9239"},{"name":"Brenden Wagner","position":"Software Engineer","salary":"$206,850","start_date":"2011/06/07","office":"San Francisco","extn":"1314"},{"name":"Fiona Green","position":"Chief Operating Officer (COO)","salary":"$850,000","start_date":"2010/03/11","office":"San Francisco","extn":"2947"},{"name":"Shou Itou","position":"Regional Marketing","salary":"$163,000","start_date":"2011/08/14","office":"Tokyo","extn":"8899"},{"name":"Michelle House","position":"Integration Specialist","salary":"$95,400","start_date":"2011/06/02","office":"Sidney","extn":"2769"},{"name":"Suki Burks","position":"Developer","salary":"$114,500","start_date":"2009/10/22","office":"London","extn":"6832"},{"name":"Prescott Bartlett","position":"Technical Author","salary":"$145,000","start_date":"2011/05/07","office":"London","extn":"3606"},{"name":"Gavin Cortez","position":"Team Leader","salary":"$235,500","start_date":"2008/10/26","office":"San Francisco","extn":"2860"},{"name":"Martena Mccray","position":"Post-Sales support","salary":"$324,050","start_date":"2011/03/09","office":"Edinburgh","extn":"8240"},{"name":"Unity Butler","position":"Marketing Designer","salary":"$85,675","start_date":"2009/12/09","office":"San Francisco","extn":"5384"},{"name":"Howard Hatfield","position":"Office Manager","salary":"$164,500","start_date":"2008/12/16","office":"San Francisco","extn":"7031"},{"name":"Hope Fuentes","position":"Secretary","salary":"$109,850","start_date":"2010/02/12","office":"San Francisco","extn":"6318"},{"name":"Vivian Harrell","position":"Financial Controller","salary":"$452,500","start_date":"2009/02/14","office":"San Francisco","extn":"9422"},{"name":"Timothy Mooney","position":"Office Manager","salary":"$136,200","start_date":"2008/12/11","office":"London","extn":"7580"},{"name":"Jackson Bradshaw","position":"Director","salary":"$645,750","start_date":"2008/09/26","office":"New York","extn":"1042"},{"name":"Olivia Liang","position":"Support Engineer","salary":"$234,500","start_date":"2011/02/03","office":"Singapore","extn":"2120"},{"name":"Bruno Nash","position":"Software Engineer","salary":"$163,500","start_date":"2011/05/03","office":"London","extn":"6222"},{"name":"Sakura Yamamoto","position":"Support Engineer","salary":"$139,575","start_date":"2009/08/19","office":"Tokyo","extn":"9383"},{"name":"Thor Walton","position":"Developer","salary":"$98,540","start_date":"2013/08/11","office":"New York","extn":"8327"},{"name":"Finn Camacho","position":"Support Engineer","salary":"$87,500","start_date":"2009/07/07","office":"San Francisco","extn":"2927"},{"name":"Serge Baldwin","position":"Data Coordinator","salary":"$138,575","start_date":"2012/04/09","office":"Singapore","extn":"8352"},{"name":"Zenaida Frank","position":"Software Engineer","salary":"$125,250","start_date":"2010/01/04","office":"New York","extn":"7439"},{"name":"Zorita Serrano","position":"Software Engineer","salary":"$115,000","start_date":"2012/06/01","office":"San Francisco","extn":"4389"},{"name":"Jennifer Acosta","position":"Junior Javascript Developer","salary":"$75,650","start_date":"2013/02/01","office":"Edinburgh","extn":"3431"},{"name":"Cara Stevens","position":"Sales Assistant","salary":"$145,600","start_date":"2011/12/06","office":"New York","extn":"3990"},{"name":"Hermione Butler","position":"Regional Director","salary":"$356,250","start_date":"2011/03/21","office":"London","extn":"1016"},{"name":"Lael Greer","position":"Systems Administrator","salary":"$103,500","start_date":"2009/02/27","office":"London","extn":"6733"},{"name":"Jonas Alexander","position":"Developer","salary":"$86,500","start_date":"2010/07/14","office":"San Francisco","extn":"8196"},{"name":"Shad Decker","position":"Regional Director","salary":"$183,000","start_date":"2008/11/13","office":"Edinburgh","extn":"6373"},{"name":"Michael Bruce","position":"Javascript Developer","salary":"$183,000","start_date":"2011/06/27","office":"Singapore","extn":"5384"},{"name":"Donna Snider","position":"Customer Support","salary":"$112,000","start_date":"2011/01/25","office":"New York","extn":"4226"}]};
+	
+    var table = $('#example').DataTable( {
+        "ajax": 'https://ojm-dashboard-svcs.cfapps.io/api/details/all/all',
+        scrollY:        250,
+    	deferRender:    true,
+    	scroller:       true,
+        "columns": [
+            {
+                "class":          'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+            },
+            { "data": "orderTitle" },
+            { "data": "status" }, 
+            { "data": "subStatus" }, 
+            { "data": "dueDate" ,
+            "render": function ( data, type, row ) {
+            	 if ( type === 'display' || type === 'filter' ) {
+                     var d = new Date( data );
+                     //return (d.getMonth()+1).toString() +'-'+ d.getDate() +'-'+ d.getFullYear();
+                     var date= d.toDateString();
+                     return date.substr(3,7)+', '+date.substr(10);
+                 }
+            	 return data;
+            }
+            }
+        ],
+        "order": [[1, 'asc']]
+    } );
+	
+    // Add event listener for opening and closing details
+    $('#example tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            $('div.slider', row.child()).slideUp( function () {
+                row.child.hide();
+                tr.removeClass('shown');
+            } );
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()), 'no-padding' ).show();
+            tr.addClass('shown');
+
+            $('div.slider', row.child()).slideDown();
+        }
+    } );
+
+	//api call for initial page load
+	
+	$.ajax({
+        url:'https://ojm-dashboard-svcs.cfapps.io/api/overview',
+		complete: function (response) {
+        console.log(response);
+            //$('#output').html(response.responseText);
+            console.log(response.responseJSON.description);
+            console.log(response.responseJSON.data);
+            var labels=[];
+            var count = [];
+        	var inHTML = "";
+        	
+        	for (x in response.responseJSON.data) {
+        		
+        		labels.push(response.responseJSON.data[x].title);
+        		
+        	}
+			for (x in response.responseJSON.data) {
+        		
+        		count.push(response.responseJSON.data[x].count);
+        		
+        	}
+			
+			
+	        var graphHeading = '<h3>'+response.responseJSON.title+'</h3>';
+				$(".divGraphHeading").html(graphHeading);
+				
+			var metricsHeading = '<h4>'+response.responseJSON.description+'</h4>';
+			$(".divMetricsHeading").html(metricsHeading);
+			
+			
+				var inProgressCount = response.responseJSON.inProgressCount;
+				$(".inProgressBox").html(inProgressCount);
+				var alertsCount = response.responseJSON.alertsCount;
+				$(".alertsBox").html(alertsCount);
+				var pastDueCount = response.responseJSON.pastDueCount;
+				$(".pastDueBox").html(pastDueCount);
+				
+			var tableHeading = '<div class="divTableRow">'+
+				'<div class="divTableCell"><b>Status</b></div>'+
+				'<div class="divTableCell" style="color:#008000"><b>In Progress</b></div>'+
+				'<div class="divTableCell" style="color:#FFC300"><b>Alerts</b></div>'+
+				'<div class="divTableCell" style="color:#FF0000"><b>Past Due</b></div>'+
+				'<div class="divTableCell"><b>Total</b></div></div>';
+							
+			$(".divTableBody").html(tableHeading);
+			
+			$.each(response.responseJSON.data, function(index, value){
+				var newItem = '<div class="divTableRow"><div class="divTableCell">'+value.title+'</div>'+
+					'<div class="divTableCell">&nbsp;'+value.countInProgress+'</div>'+
+					'<div class="divTableCell">&nbsp;'+value.countAlerts+'</div>'+
+					'<div class="divTableCell">&nbsp;'+value.countPastDue+'</div>'+
+					'<div class="divTableCell">&nbsp;'+value.count+'</div>'+
+					'</div>';
+				
+					inHTML += newItem; 
+			});
+
+        	$(".divTableBody").append(inHTML); //add generated divs html to corresponding table 
+        	$("#draftChart").hide();
+        	$("#validatedChart").hide();
+        	$("#submittedChart").hide();
+        	$("#salesDraftChart").hide();
+        	$("#onholdChart").hide();
+        	$("#fulfillmentChart").hide();
+        	$("#pendingProdChart").hide();
+        	$("#inProcessChart").hide();
+        	$("#readyToShipChart").hide();
+        	$("#manifestChart").hide();
+        	$("#cReceiptChart").hide();
+        	$("#quoteChart").hide();
+        	$("#salesOrderChart").hide();
+        	$("#fulfillmentOrderChart").hide();
+        	$("#invoiceAllChart").hide();
+        	$("#invoiceChart").hide();
+        	var ctx = document.getElementById("myChart").getContext('2d');
+        	
+        	var myChart = new Chart(ctx, {
+        	  type: 'pie',
+        	  data: {
+        	    labels: labels,
+        	    datasets: [{
+        	      backgroundColor: [
+        	        "#2ecc71",
+        	        "#3498db",
+        	        "#e74c3c"
+        	        
+        	      ],
+        	      data: count
+        	    }]
+        	  }
+        	});
+              
+        },
+        error: function () {
+            $('#output').html('CrossDomain: there was an error!');
+        },
+    });
+    return false;
+} );
+//]]> 
+
+</script>
+
+
+</body>
+
+</html>

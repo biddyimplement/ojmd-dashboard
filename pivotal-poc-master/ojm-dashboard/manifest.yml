@@ -1,0 +1,7 @@
+---
+applications:
+- name: ojm-dashboard-app
+  memory: 1G
+  host: ojm-dashboard-app
+  buildpack: java_buildpack
+  path: target/ojm-dashboard-app-0.1.0.jar

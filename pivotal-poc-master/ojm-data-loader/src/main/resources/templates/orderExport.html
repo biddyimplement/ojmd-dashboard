@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>OrderExports</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="/js/orderExports.js"></script>
+</head>
+
+<body>
+	<h1>Order Exports Table</h1>
+	<table id="orderExportsTable" class="display">
+      
+       <!-- Header Table -->
+       <thead>
+            <tr>
+                <th>Sales Order #</th>
+				<th>Type</th>
+				<th>Account</th>
+				<th>End User</th>
+				<th>Billing Account</th>
+				<th>Contract</th>
+            </tr>
+        </thead>
+        <!-- Footer Table -->
+        <tfoot>
+            <tr>
+                <th>Sales Order #</th>
+				<th>Type</th>
+				<th>Account</th>
+				<th>End User</th>
+				<th>Billing Account</th>
+				<th>Contract</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,3 @@
+INSERT INTO file_submission_record(id, file_name, file_type, submitted_on) values (1, 'Holds_Export_Data.csv','Holds Data','2018-03-19');
+INSERT INTO file_submission_record(id, file_name, file_type, submitted_on) values (2, 'Order_Export_Data.csv','Orders Data','2018-03-19');
+INSERT INTO order_export(created_on, sales_order_num, type, sales_team, submitted_by, account, last_name, first_name, end_user, billing_account, purchase_order_num, sales_channel, contract, sub_type, original_sales_order_num, dpid, source, cancel_reenter) values ('2018-03-09','13752235433','Standard Order','Vinod Palanisamy','YOGESHM','ACCAD_AFFINITY','Mishraa','Yogesh','ACCAD_AFFINITY','ACCAD_AFFINITY','','DFSLP','3-FP_DEFECT_8100','','','','PREMIER','N');
